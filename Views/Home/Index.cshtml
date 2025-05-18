@@ -1,0 +1,23 @@
+﻿@model DASS.Models.HomeViewModel
+@{ViewData["Title"] = "Home Page";}
+
+
+<h2>DASS-42 Questionnaire</h2>
+
+@using (Html.BeginForm("Submit", "Home", FormMethod.Post))
+{
+    @for (var i = 0; i < Model.Responses.Count; i++)
+    {
+        <div>
+            @Html.HiddenFor(m => m.Responses[i].QuestionText)
+            <label>@(i + 1). @Model.Responses[i].QuestionText</label><br />
+            @Html.RadioButtonFor(m => m.Responses[i].ResponseScore, 0) @Html.Label($"Responses[{i}].ResponseScore", "Hoàn toàn không đúng với tôi")<br />
+            @Html.RadioButtonFor(m => m.Responses[i].ResponseScore, 1) @Html.Label($"Responses[{i}].ResponseScore", "Đúng với tôi ở một mức độ nào đó, hoặc đôi khi")<br />
+            @Html.RadioButtonFor(m => m.Responses[i].ResponseScore, 2) @Html.Label($"Responses[{i}].ResponseScore", "Đúng với tôi ở một mức độ đáng kể, hoặc phần lớn thời gian")<br />
+            @Html.RadioButtonFor(m => m.Responses[i].ResponseScore, 3) @Html.Label($"Responses[{i}].ResponseScore", "Đúng với tôi rất nhiều, hoặc hầu hết thời gian")<br />
+            <br />
+        </div>
+    }
+    <button type="submit">Submit Answers</button>
+}
+
