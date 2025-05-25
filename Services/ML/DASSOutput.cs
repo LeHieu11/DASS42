@@ -6,5 +6,5 @@ public class DASSOutput
 {
     [ColumnName("output_label")]
     [VectorType(1)]
-    public string[]? Label { get; set; }
+    public Int64[] Label { get; set; } = new Int64[1];
 }

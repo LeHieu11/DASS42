@@ -1,5 +1,6 @@
 using DASS.Models;
 using Microsoft.ML;
+using DASS.Const;
 
 namespace DASS.Services.ML;
 
@@ -41,13 +42,16 @@ public class Predictor
         DASSOutput tmpOutput;
 
         tmpOutput = DepressionEngine.Predict(modelInput);
-        if (tmpOutput.Label != null) prediction["depression"] = tmpOutput.Label[0];
+        if (tmpOutput.Label != null) prediction["depression"]
+            = PredictMapper.Mapper[tmpOutput.Label[0]];
 
         tmpOutput = AnxietyEngine.Predict(modelInput);
-        if (tmpOutput.Label != null) prediction["anxiety"] = tmpOutput.Label[0];
+        if (tmpOutput.Label != null) prediction["anxiety"]
+            = PredictMapper.Mapper[tmpOutput.Label[0]];
 
         tmpOutput = StressEngine.Predict(modelInput);
-        if (tmpOutput.Label != null) prediction["stress"] = tmpOutput.Label[0];
+        if (tmpOutput.Label != null) prediction["stress"]
+            = PredictMapper.Mapper[tmpOutput.Label[0]];
 
         return prediction;
     }
