@@ -4,7 +4,7 @@ namespace DASS.Services.ML;
 
 public class DASSOutput
 {
-    [ColumnName("output_label")]
+    [ColumnName("label")]
     [VectorType(1)]
     public Int64[] Label { get; set; } = new Int64[1];
 }
