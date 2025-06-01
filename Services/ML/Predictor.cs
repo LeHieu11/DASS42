@@ -6,9 +6,9 @@ namespace DASS.Services.ML;
 
 public class Predictor
 {
-    private readonly string DEPRESSION_MODEL_PATH = "Services/ML/Models/onnx_depression.onnx";
-    private readonly string AnxietyTransformer_PATH = "Services/ML/Models/onnx_anxiety.onnx";
-    private readonly string StressTransformer_PATH = "Services/ML/Models/onnx_stress.onnx";
+    private readonly string DEPRESSION_MODEL_PATH = "Services/ML/Models/svc_anxiety.onnx";
+    private readonly string AnxietyTransformer_PATH = "Services/ML/Models/svc_anxiety.onnx";
+    private readonly string StressTransformer_PATH = "Services/ML/Models/svc_anxiety.onnx";
     private readonly PredictionEngine<DASSInput, DASSOutput> DepressionEngine;
     private readonly PredictionEngine<DASSInput, DASSOutput> AnxietyEngine;
     private readonly PredictionEngine<DASSInput, DASSOutput> StressEngine;

@@ -8,7 +8,6 @@ builder.Services.AddControllersWithViews();
 
 // Add Ml predictor
 builder.Services.AddSingleton<Predictor>();
-// builder.Services.BuildServiceProvider().GetService<Predictor>();
 
 var app = builder.Build();
 
@@ -32,7 +31,7 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 
-// 
+// Create a Predictor instance
 app.Services.GetService<Predictor>();
 
 app.Run();
